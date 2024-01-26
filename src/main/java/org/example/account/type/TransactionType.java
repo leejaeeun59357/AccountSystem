@@ -1,2 +1,5 @@
-package org.example.account.type;public class TransactionType {
+package org.example.account.type;
+
+public enum TransactionType {
+    USE, CANCEL
 }

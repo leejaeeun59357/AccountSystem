@@ -3,19 +3,19 @@ package org.example.account.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.*;
+import org.example.account.aop.AccountLockIdInterface;
 import org.example.account.type.TransactionResultType;
 
 import java.time.LocalDateTime;
 
-public class UseBalance {
+public class CancelBalance {
 
     @Getter
     @Setter
     @AllArgsConstructor
-    public static class Request{
-        @NotNull
-        @Min(1)
-        private Long userId;
+    public static class Request implements AccountLockIdInterface {
+        @NotBlank
+        private String transactionId;
 
         @NotBlank
         @Size(min = 10, max = 10)
